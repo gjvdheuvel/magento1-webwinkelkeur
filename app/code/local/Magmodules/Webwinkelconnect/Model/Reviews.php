@@ -42,6 +42,9 @@ class Magmodules_Webwinkelconnect_Model_Reviews extends Mage_Core_Model_Abstract
         $company = $feed->company;
 
         foreach ($feed->reviews->review as $review) {
+            if (empty($feed)) {
+                unset($feed[$key]);
+            }
             $hash = $review->hash;
             $name = $review->name;
             $experience = $review->experience;
